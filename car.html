@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car</title>
+    <!-- โหลดไฟล์ Chart.js จาก CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/Chart.min.js"></script>
+</head>
+<body>
+
+    <h1>Welcome to the Car Page</h1>
+    <a href="index.html">Go to Home Page</a><br>
+    <a href="driver.html">Go to Driver Page</a>
+
+    <!-- Canvas element เพื่อแสดงกราฟ -->
+    <canvas id="speedChart"></canvas>
+
+    <!-- Script สร้างกราฟ -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // ข้อมูลความเร็วของแต่ละคน
+            var speeds = [
+                [60, 70, 65, 75, 80, 85], // ข้อมูลความเร็วของคนที่ 1
+                [55, 65, 70, 75, 72, 80], // ข้อมูลความเร็วของคนที่ 2
+                [70, 75, 80, 78, 82, 85]  // ข้อมูลความเร็วของคนที่ 3
+            ];
+
+            // ตำแหน่งที่แสดงกราฟ
+            var ctx = document.getElementById("speedChart").getContext("2d");
+
+            // สร้างกราฟ
+            var myChart = new Chart(ctx, {
+                type: "line", // ประเภทของกราฟ
+                data: {
+                    labels: ["1", "2", "3", "4", "5", "6"], // ตัวอย่างชื่อแกน x
+                    datasets: [{
+                            label: "Driver 1", // ชื่อของคนที่ 1
+                            data: speeds[0], // ข้อมูลความเร็วของคนที่ 1
+                            backgroundColor: "rgba(255, 99, 132, 0.2)", // สีพื้นหลังกราฟ
+                            borderColor: "rgba(255, 99, 132, 1)", // สีเส้นกราฟ
+                            borderWidth: 1 // ความหนาของเส้นกราฟ
+                        },
+                        {
+                            label: "Driver 2", // ชื่อของคนที่ 2
+                            data: speeds[1], // ข้อมูลความเร็วของคนที่ 2
+                            backgroundColor: "rgba(54, 162, 235, 0.2)", // สีพื้นหลังกราฟ
+                            borderColor: "rgba(54, 162, 235, 1)", // สีเส้นกราฟ
+                            borderWidth: 1 // ความหนาของเส้นกราฟ
+                        },
+                        {
+                            label: "Driver 3", // ชื่อของคนที่ 3
+                            data: speeds[2], // ข้อมูลความเร็วของคนที่ 3
+                            backgroundColor: "rgba(255, 206, 86, 0.2)", // สีพื้นหลังกราฟ
+                            borderColor: "rgba(255, 206, 86, 1)", // สีเส้นกราฟ
+                            borderWidth: 1 // ความหนาของเส้นกราฟ
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true // เริ่มต้นแกน y ที่ค่า 0
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

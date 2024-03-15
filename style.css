@@ -1,0 +1,6 @@
+canvas {
+    width: 80%; /* ขนาดความกว้างของ Canvas */
+    height: auto; /* ความสูงจะปรับตาม Canvas */
+    margin: 20px auto; /* การจัดวางให้อยู่ตรงกลาง */
+    display: block; /* แสดงเป็นบล็อก */
+}
